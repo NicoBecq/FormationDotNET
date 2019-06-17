@@ -1,0 +1,36 @@
+﻿<Window x:Class="Diary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diary"
+        mc:Ignorable="d"
+        Title="Agenda LaManu" Height="550" Width="800">
+    
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Height="25" VerticalAlignment="Top">
+                <MenuItem Header="Clients">
+                    <MenuItem Name="AddCustomer" Header="Ajouter un client" 
+                              Click="Navigation" />
+                    <MenuItem Name="ListCustomer" Header="Liste des clients" 
+                              Click="Navigation" />
+                </MenuItem>
+                <MenuItem Header="Courtiers">
+                    <MenuItem Name="AddBroker" Header="Ajouter un courtier" 
+                              Click="Navigation" />
+                    <MenuItem Name="ListBroker" Header="Liste des courtiers" 
+                              Click="Navigation" />
+                </MenuItem>
+                <MenuItem Header="Rendez-vous">
+                    <MenuItem Name="AddAppointment" Header="Ajouter un rendez-vous" 
+                              Click="Navigation"/>
+                    <MenuItem Name="ListAppointment" Header="Liste des rendez-vous" 
+                              Click="Navigation" />
+                </MenuItem>
+            </Menu>            
+        </DockPanel>
+        <Frame Name="FrameArea" Source="Views/ListCustomer.xaml" Margin="0,25,0,0" NavigationUIVisibility="Hidden">
+        </Frame>
+    </Grid>
+</Window>

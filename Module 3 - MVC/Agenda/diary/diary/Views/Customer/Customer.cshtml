@@ -1,0 +1,44 @@
+﻿<!--ajout du modèle dans la vue-->
+@model diary.Models.customer
+@{
+    ViewBag.Title = "Ajout de client";
+}
+
+<h2>Ajouter un nouveau client</h2>
+@* messages d'erreurs ou réussite insert *@
+<span class="success-message">@ViewBag.SuccessMessage</span>
+<span class="failure-message">@ViewBag.DuplicateMessage</span>
+<div id="form_container" class="container rounded mt-2 text-center">
+    @*Form*@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken() @* permet d'éviter les injections de code dans le form *@
+        <div class="form-group mt-3">
+            @* label, message d'erreur, input type texte *@
+            @Html.LabelFor(model => model.lastName, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "rounded failure-message" })
+            @Html.TextBoxFor(model => model.lastName, new { placeholder = "Nom de famille", @class = "form-control" })
+        </div>
+        <div class="form-group mt-2">
+            @Html.LabelFor(model => model.firstName, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "rounded failure-message" })
+            @Html.TextBoxFor(model => model.firstName, new { placeholder = "Prénom", @class = "form-control" })
+        </div>
+        <div class="form-group mt-2">
+            @Html.LabelFor(model => model.mail, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.mail, "", new { @class = "rounded failure-message" })
+            @Html.TextBoxFor(model => model.mail, new { placeholder = "Adresse Mail", @class = "form-control" })
+        </div>
+        <div class="form-group mt-2">
+            @Html.LabelFor(model => model.phoneNumber, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "rounded failure-message" })
+            @Html.TextBoxFor(model => model.phoneNumber, new { placeholder = "Numéro de télephone", @class = "form-control" })
+        </div>
+        <div class="form-group mt-2">
+            @Html.LabelFor(model => model.budget, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.budget, "", new { @class = "rounded failure-message" })
+            @Html.TextBoxFor(model => model.budget, new { placeholder = "Budget", @class = "form-control" })
+        </div>
+        <button id="submit" type="submit" class="btn btn-primary mb-2">Ajouter</button>
+    }
+</div>

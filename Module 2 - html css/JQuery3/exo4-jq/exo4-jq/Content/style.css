@@ -1,0 +1,8 @@
+﻿.square {
+    width: 200px;
+    height: 35px;
+    background-color: red;
+}
+.square_green {
+    background-color: green;
+}

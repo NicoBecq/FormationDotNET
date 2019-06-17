@@ -1,0 +1,65 @@
+﻿<Window x:Class="Répertoire.Views.ListContacts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Répertoire.Views"
+        mc:Ignorable="d"
+        Title="ListContacts" Height="450" Width="800" Loaded="Window_Loaded">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0A002B" Offset="1"/>
+                <GradientStop Color="#FF3212A0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="600" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="#FF474646"                
+                CornerRadius="15" 
+                Grid.Column="1" 
+                Grid.Row="1"
+                Grid.RowSpan="4">
+            <Border.Background>
+                <SolidColorBrush Color="#FF404040" Opacity="0.9"/>
+            </Border.Background>
+        </Border>
+        
+        <!-- Tittle -->
+        <TextBlock Text="Liste des contacts" Grid.Column="1" Grid.Row="1" FontSize="30"
+                   HorizontalAlignment="Center"/>
+
+        <DataGrid Name="contactDataGrid" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"
+                  Margin="30,0" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="firstNameColumn" Width="auto" 
+                                        Header="Prénom" Binding="{Binding firstName}"/>
+                <DataGridTextColumn x:Name="lastNameColumn" Width="auto" 
+                                        Header="Nom de famille" Binding="{Binding lastName}"/>
+                <DataGridTextColumn x:Name="mailColumn" Width="auto" 
+                                        Header="Adresse Mail" Binding="{Binding mail}"/>
+                <DataGridTextColumn x:Name="phoneNumberColumn" Width="auto" 
+                                        Header="Numéro de télephone" Binding="{Binding phoneNumber}"/>
+                <DataGridTextColumn x:Name="addressColumn" Width="auto" Header="Adresse" 
+                                    Binding="{Binding address}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Retour à votre profil" Grid.Column="1" Grid.Row="4"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Height="22"
+                Width="200" Click="ButtonReturnToProfil_Click"/>
+    </Grid>
+</Window>

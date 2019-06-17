@@ -1,0 +1,111 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diary.Views"
+      xmlns:Models="clr-namespace:Diary.Models" x:Class="Diary.Views.ListCustomer"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListCustomer" Loaded="PageListCustomer_Loaded">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="customerViewSource" d:DesignSource="{d:DesignInstance {x:Type Models:customer}, CreateList=True}"/>
+    </Page.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid DataContext="{StaticResource customerViewSource}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9CA7CD" Offset="0"/>
+                    <GradientStop Color="#FF06289C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                       FontSize="36" Text="Liste des clients" 
+                       FontFamily="Segoe Print" FontWeight="Bold"/>
+
+            <DataGrid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" x:Name="customerDataGrid" 
+                  AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,0,10,15" Width="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding firstName}" 
+                                    Header="Prénom" Width="auto"/>
+                    <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding lastName}" 
+                                    Header="Nom de famille" Width="auto"/>
+                    <DataGridTextColumn x:Name="mailColumn" Binding="{Binding mail}" 
+                                    Header="Adresse mail" Width="auto"/>
+                    <DataGridTextColumn x:Name="phoneNumberColumn" Binding="{Binding phoneNumber}" 
+                                    Header="Numéro de téléphone" Width="auto"/>
+                    <DataGridTextColumn x:Name="budgetColumn" Binding="{Binding budget}" 
+                                    Header="Budget" Width="SizeToHeader"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            <!-- hidden textblcok for idCustomer-->
+            <TextBlock Text="{Binding ElementName=customerDataGrid, Path=SelectedItem.idCustomer}"
+                       Visibility="Hidden" Name="idCustomerTextBlock"/>
+            
+            <!-- Partie modifications -->
+            <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Text="Modifications" 
+                       HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" 
+                       FontFamily="Segoe Print" FontWeight="Bold" />
+            
+            <!-- formulaire de modification -->
+            <StackPanel Grid.Column="1" Grid.Row="3" Margin="5">
+                <Label Content="Nom de famille" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" 
+                 Name="lastNameTextBox" Text="{Binding ElementName=customerDataGrid, Path=SelectedItem.lastName}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="3" Margin="5">
+                <Label Content="Prénom" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" Name="firstNameTextBox" 
+                         Text="{Binding ElementName=customerDataGrid, Path=SelectedItem.firstName}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="4" Margin="5">
+                <Label Content="Adresse Mail" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" Name="mailTextBox" 
+                         Text="{Binding ElementName=customerDataGrid, Path=SelectedItem.mail}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="4" Margin="5">
+                <Label Content="Numéro de télephone" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" Name="phoneNumberTextBox" 
+                         Text="{Binding ElementName=customerDataGrid, Path=SelectedItem.phoneNumber}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Margin="5"
+                    HorizontalAlignment="Center">
+                <Label Content="budget" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" Name="budgetTextBox" 
+                         Text="{Binding ElementName=customerDataGrid, Path=SelectedItem.budget}" />
+            </StackPanel>
+
+            <Button Grid.Column="1" Grid.Row="6" Margin="15,5" Content="Enregistrer"
+                Width="150" MaxHeight="35" Background="#FF63E028" Click="ButtonUpdate_Click" />
+            <Button Grid.Column="2" Grid.Row="6" Margin="15,5" Content="Supprimer"
+                Width="150" MaxHeight="35" Background="#FFF02B2B" Click="ButtonDelete_Click" />
+
+        </Grid>
+    </ScrollViewer>
+</Page>

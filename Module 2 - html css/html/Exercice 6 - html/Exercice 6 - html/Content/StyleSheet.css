@@ -1,0 +1,16 @@
+﻿.identity {
+    background-color: #2574A9;
+}
+.adress {
+    background-color: #9A12B3;
+}
+.paymentInfos {
+    background-color: #DB0A5B;
+}
+fieldset 
+{
+    border: 2px ridge;
+}
+ul {
+    list-style-type: none;
+}

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Agenda</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid fixed-top pt-2 pb-2" id="nav">
+            <div class="navbar-header">
+                <button type="button" class="btn btn-primary" id="index">
+                    <span class="icon-bar"><i class="fas fa-address-book"></i></span>
+                    @Html.ActionLink("Accueil", "Index", "Home", new { area = "" }, new { @class = "link_index" })
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="body-content">
+            @RenderBody()
+            <footer class="container pt-2 rounded fixed-bottom mb-2">
+                <ul>
+                    <li>
+                        @Html.ActionLink("Ajout de courtier", "AddBroker", "Broker", new { area = "" }, new { @class = "nav" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Ajout de client", "AddCustomer", "Customer", new { area = "" }, new { @class = "nav" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Ajout de Rendez-vous", "AddAppointment", "Appointment", new { area = "" }, new { @class = "nav" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Liste des courtiers", "ListBrokers", "Broker", new { area = "" }, new { @class = "nav" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Liste des clients", "ListCustomer", "Customer", new { area = "" }, new { @class = "nav" })
+                    </li>
+                </ul>
+                <p class="text-center text-white">&copy; @DateTime.Now.Year - Nicolas</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/moment-with-locales.min.js"></script>
+    <script src="~/Scripts/jquery.validate.globalize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="~/Scripts/Script.js"></script>
+</body>
+</html>

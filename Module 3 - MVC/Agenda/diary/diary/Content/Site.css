@@ -1,0 +1,83 @@
+﻿body {
+    background-image: url('Imgs/fond1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+.body-content {
+    margin: 50px 0;
+}
+.link_index {
+    color: white;
+}
+#nav, footer {
+    background-image: linear-gradient(5deg,#00447c, #156DAE);
+}
+footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+}
+    footer ul li a {
+        color: #313538;
+    }
+    footer ul li a:hover {
+        color: black;
+    }
+
+form span input, 
+form span button {
+    margin: 5px auto;
+}
+.label-hidden {
+    display: none;
+}
+
+table input {
+    width: auto; 
+}
+#mail-input, .customer-modify-input {
+    width: 400px;
+}
+@media(max-width: 460px) {
+    input, 
+    select,
+    textarea {
+        width: auto;
+    }
+}
+@media(max-width: 767px) {
+    footer ul {
+        flex-wrap: wrap;
+    }
+}
+
+.field-validation-error {
+    background-color: #a01e1e;
+    margin-bottom: 0;
+    width: auto;
+}
+#form_container {
+    display: block;
+    max-height: 370px;
+    overflow: auto;
+    background-image: linear-gradient(250deg, #343A40, #67737f)
+}
+#delete_form_container {
+    display: block;
+    max-height: 410px;
+    overflow: auto;
+    background-image: linear-gradient(250deg, #343A40, #67737f)
+}
+.table {
+    max-height: 370px;
+    overflow: auto;
+}
+.success-message {
+    color: green;
+}
+.failure-message {
+    color: red;
+}

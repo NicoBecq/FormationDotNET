@@ -1,0 +1,93 @@
+﻿<Window x:Class="Répertoire.Views.Profil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Répertoire.Views"
+        mc:Ignorable="d"
+        Title="Profil" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0A002B" Offset="1"/>
+                <GradientStop Color="#FF3212A0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="600" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="#FF474646"                
+                CornerRadius="15" 
+                Grid.Column="1" 
+                Grid.Row="1"
+                Grid.RowSpan="4">
+            <Border.Background>
+                <SolidColorBrush Color="#FF404040" Opacity="0.9"/>
+            </Border.Background>
+        </Border>
+
+        <!--Tittle-->
+        <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" 
+                   VerticalAlignment="Top">
+            <TextBlock Text="Bienvenue " FontSize="30" />
+            <TextBlock Name="userNameArea" FontSize="30"/>
+        </WrapPanel>
+
+        <!--UserProfil-->
+        <WrapPanel Grid.Column="1" Grid.Row="2" Panel.ZIndex="2" Background="Blue" Height="25" 
+                   Margin="30,0,30,0" VerticalAlignment="Top">
+            <TextBlock Text="Profil" Foreground="White" Margin="5,5"/>
+            <Border BorderBrush="White" Background="White" Margin="455,3,8,3" BorderThickness="1">
+                <TextBlock Text=" _  " Background="#FF0046FF" Foreground="White" FontWeight="Bold"/>
+            </Border>
+            <Border Background="White" BorderBrush="White" BorderThickness="1" Margin="0,3,0,3">
+                <TextBlock Text=" X " FontWeight="Bold" Foreground="White" Background="Red"/>
+            </Border>
+        </WrapPanel>
+
+        <Border Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="30,0,30,0" Background="White">
+            <StackPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center">
+                <WrapPanel>
+                </WrapPanel>
+                <WrapPanel  Margin="30,20,30,10" >
+                    <TextBlock Text="- Nom : " />
+                    <TextBlock Name="userLastNameTextBlock" />
+                </WrapPanel>
+                <WrapPanel Margin="30,0,30,10">
+                    <TextBlock Text="- Prénom : " />
+                    <TextBlock Name="userFirstNameTextBlock" />
+                </WrapPanel>
+                <WrapPanel Margin="30,0,30,10">
+                    <TextBlock Text="- Nom d'utilisateur : " />
+                    <TextBlock Name="userNameTextBlock" />
+                </WrapPanel>
+                <WrapPanel Margin="30,0,30,10">
+                    <TextBlock Text="- Adresse Mail : " />
+                    <TextBlock Name="userMailTextBlock" />
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+
+
+        <WrapPanel Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" 
+                   HorizontalAlignment="Center">
+            <Button Height="22" Width="200" Grid.Column="1" Grid.Row="5" 
+                    Content="Ajouter un contact" Margin="0,0,15,0" Click="ButtonAddContact_Click"/>
+            <Button Height="22" Width="200" Grid.Column="1" Grid.Row="5" 
+                    Content="Liste des contacts" Margin="15,0,0,0" Click="ButtonListContact_Click"/>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="22" Width="200"
+                    Content="Déconnexion" Margin="115,15" Click="ButtonDeconnect_Click"/>
+        </WrapPanel>
+    </Grid>
+</Window>

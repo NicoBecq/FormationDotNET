@@ -1,0 +1,8 @@
+﻿.red_square {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    height: 30px;
+    width: 30px;
+    background-color: red;
+}

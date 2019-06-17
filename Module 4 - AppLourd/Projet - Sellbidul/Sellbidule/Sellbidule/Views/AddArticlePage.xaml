@@ -1,0 +1,81 @@
+﻿<Page x:Class="Sellbidule.Views.AddArticlePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sellbidule.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddArticlePage" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        
+        <!--Tittle-->
+        <TextBlock Text="Ajouter un article" Grid.Column="1" Grid.ColumnSpan="2" 
+                   Grid.Row="1" FontSize="30" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"/>
+        
+        <!--Formulaire-->
+        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="30,0">
+            <Label Content="Nom du produit :" />
+            <TextBox Name="nameTextBox" LostFocus="NameTextBox_LostFocus" />
+            <TextBlock Name="nameErrorTextBlock" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Margin="30,0">
+            <Label Content="Prix : " />
+            <TextBox Name="priceTextBox" LostFocus="PriceTextBox_LostFocus" />
+            <TextBlock Name="priceErrorTextBlock" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="30,0">
+            <Label Content="Description du produit :" />
+            <TextBox Name="descriptionTextBox" LostFocus="DescriptionTextBox_LostFocus" />
+            <TextBlock Name="descriptionErrorTextBlock" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Margin="30,0">
+            <Label Content="Quantité :" />
+            <TextBox Name="quantityTextBox" LostFocus="QuantityTextBox_LostFocus" />
+            <TextBlock Name="quantityErrorTextBlock" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Margin="30,0">
+            <Label Content="Référence :" />
+            <TextBox Name="refTextBox" LostFocus="RefTextBox_LostFocus" />
+            <TextBlock Name="refErrorTextBlock" Foreground="Red" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Margin="30,0">
+            <Label Content="Image :" />
+            <TextBox Name="imageTextBox" GotFocus="ImageTextBox_GotFocus" />
+            <TextBlock Name="imageErrorMessage" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" VerticalAlignment="Center">
+            <Label Content="Catégorie :" HorizontalAlignment="Center"/>
+            <ComboBox Name="categoryComboBox" ItemsSource="{Binding}" Margin="200,0"/>
+            <TextBlock Name="categoryErrorTextBlock" Foreground="Red" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" Content="Enregistrer"
+                Name="AddArticleButton" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Width="200" Click="AddArticleButton_Click"/>
+    </Grid>
+</Page>

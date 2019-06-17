@@ -1,0 +1,115 @@
+﻿body {
+    background: url(img/concert_fond.jpg) no-repeat fixed;
+    background-size: cover;
+    height: 100vh;
+    font-family: Righteous, sans-serif; 
+}
+/* tout le header*/
+header {
+    height: 100vh;
+    color: #d1d1d1;
+    display: flex;
+    align-items: flex-end;
+}
+.title {
+    margin-left: 6%;
+}
+ul {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+#deco {
+    background-color: white; /*hr du header*/
+    width: 40%;
+    float: left;
+}
+/* toute la première section a propos*/
+.separator {
+    margin: 0px 0;
+    width: 100%;
+    background-color: #303030;
+}
+/*mise en forme des différentes parties*/
+#about, #career, #footer, #experiences {
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #111111;
+    color: #D1D1D1;
+}
+h2 {
+    padding-top: 80px;
+    text-decoration: underline;
+}
+article {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+/* toute la seconde partie Parcours*/
+.bloc_career {
+    margin-bottom: 30px;
+}
+.career_content {
+    align-items: center;
+}
+#career, #footer {
+    padding-top: 0px; /* coller les différents container entre eux */
+    margin-top: 0px;
+}
+.my_career {
+    /*background-color: #138496;*/
+    border: 3px solid #1ab4cc;
+    margin: -3px 0px;
+    min-height: 150px;
+}
+
+.border_light_blue {
+    border: 3px solid #1ecfea;
+}
+.button_for_modal {
+    margin-bottom: 5px;
+}
+#modal_SAE, #modal_LaManu {
+    color: #333232;
+}
+h4 {
+    font-weight: bold;
+}
+.modal_list {
+    list-style-type: square;
+    list-style-position: inside;
+    text-decoration: none;
+}
+.modal_underlist {
+    list-style-type: disc;
+    padding-left: 45px;
+}
+.btn_collapse {
+    white-space: normal;
+}
+/* toute la partie expériences */
+h4 {
+    text-align: center;
+}
+/* toute la partie footer Contact*/
+a {
+    color: #D1D1D1;
+}
+a:hover {
+    color: #17A2B8;
+}
+.contact_content {
+    align-items: center;
+}
+
+#h2_contact, #h2_career, #h2_experiences {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.experiences_item:hover {
+    color: #007719; 
+}
+.experiences_content {
+    align-items: center;
+}

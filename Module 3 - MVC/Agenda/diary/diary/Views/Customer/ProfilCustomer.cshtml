@@ -1,0 +1,76 @@
+﻿@model diary.Models.customer
+
+@{
+    ViewBag.Title = "Profil client";
+}
+
+<h2>Profil client</h2>
+
+<span>@ViewBag.ModifySuccess</span>
+<div class="container table-responsive">
+    @using (Html.BeginForm("DetailBroker", "Broker", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.idCustomer)
+        <table>
+            @*Affichage du nom des attribut du model dans les colonnes*@
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.budget)
+                </th>
+            </tr>
+            @*affichage des informations du broker sélectionné dans la value de l'input*@
+            <tr>
+                <td>
+                    @Html.TextBoxFor(model => model.lastName, new { value = Model.lastName, @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.firstName, new { value = Model.firstName, @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.mail, new { value = Model.mail, id = "mail-input", @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.phoneNumber, new { value = Model.phoneNumber, @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.budget, new { value = Model.budget, @class = "form-control" })
+                </td>
+            </tr>
+            @*Messages d'erreurs*@
+            <tr>
+                <td>
+                    @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "rounded failure-message" })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "rounded failure-message" })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.mail, "", new { @class = "rounded failure-message" })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "rounded failure-message" })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.budget, "", new { @class = "rounded failure-message" })
+                </td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-12 text-center mt-3">
+                <button type="submit" class="btn btn-info">Modifier</button>
+            </div>
+        </div>
+    }
+</div>

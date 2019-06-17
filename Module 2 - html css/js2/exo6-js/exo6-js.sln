@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exo6-js", "exo6-js\exo6-js.csproj", "{46CB3944-6563-4F28-8CF2-4663A3D97275}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46CB3944-6563-4F28-8CF2-4663A3D97275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CB3944-6563-4F28-8CF2-4663A3D97275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CB3944-6563-4F28-8CF2-4663A3D97275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CB3944-6563-4F28-8CF2-4663A3D97275}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21093C71-D923-4345-B043-11605F306C3A}
+	EndGlobalSection
+EndGlobal

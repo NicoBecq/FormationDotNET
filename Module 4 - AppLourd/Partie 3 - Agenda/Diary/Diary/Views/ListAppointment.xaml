@@ -1,0 +1,137 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diary.Views"
+      xmlns:Models="clr-namespace:Diary.Models" x:Class="Diary.Views.ListAppointment"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListAppointment" Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="appointmentViewSource" d:DesignSource="{d:DesignInstance {x:Type Models:appointment}, CreateList=True}"/>
+    </Page.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid DataContext="{StaticResource appointmentViewSource}">
+            <!-- Fond de couleur -->
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9CA7CD" Offset="0"/>
+                    <GradientStop Color="#FF06289C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <!-- textblock hidden for -->
+            <TextBlock Text="{Binding ElementName=appointmentDataGrid, Path=SelectedValue.idAppointment}"
+                       Name="idAppointmentTextBlock" Visibility="Hidden"/>
+            
+            <!-- Tittle -->
+            <Viewbox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
+                <TextBlock Text="Liste des rendez-vous" HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" FontFamily="Segoe Print" 
+                       FontWeight="Bold"/>
+            </Viewbox>
+
+            <DataGrid x:Name="appointmentDataGrid" AutoGenerateColumns="False" 
+                  Grid.ColumnSpan="2" Grid.Column="1" EnableRowVirtualization="True" 
+                  ItemsSource="{Binding}" Grid.Row="2" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn x:Name="datHourColumn" Header="Date" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding datHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                                            Name="datePicker"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="timeSlotHourColumn" Header="Heure" Binding="{Binding timeSlotHour}"
+                                        Width="auto"/>
+                    <DataGridTextColumn x:Name="timeSlotMinuteColumn" Header="Minutes" Binding="{Binding timeSlotMinute}"
+                                        Width="auto"/>
+                    <DataGridTextColumn x:Name="brokerColumn" Binding="{Binding broker.fullName}" 
+                                    Header="Courtier" Width="auto"/>
+                    <DataGridTextColumn x:Name="customerColumn" Binding="{Binding customer.fullName}"
+                                    Header="Client" Width="auto"/>
+                    <DataGridTextColumn x:Name="subjectColumn" Binding="{Binding subject}" 
+                                    Header="Sujet" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Formulaire -->
+            <!-- Tittle -->
+            <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Text="Modification"
+                   HorizontalAlignment="Center" FontSize="20" FontFamily="Segoe Print" 
+                   FontWeight="Bold"/>
+
+            <StackPanel Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Margin="15,0">
+                <Label Content="Choisissez un courtier" HorizontalAlignment="Center"/>
+                <ComboBox Name="BrokerComboBox" ItemsSource="{Binding}" DisplayMemberPath="fullName" 
+                          SelectedValue="{Binding ElementName=appointmentDataGrid, Path=SelectedValue.idBroker}"/>
+                <TextBlock Name="idBrokerErrorMessage" Foreground="Red" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Margin="15,0">
+                <Label Content="Choisissez un client" HorizontalAlignment="Center"/>
+                <ComboBox Name="CustomerComboBox" ItemsSource="{Binding}" DisplayMemberPath="fullName"
+                          SelectedValue="{Binding ElementName=appointmentDataGrid, Path=SelectedValue.idCustomer}"/>
+                <TextBlock Name="idCustomerErrorMessage" Foreground="Red" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" VerticalAlignment="Center">
+                <DatePicker Name="DatePicker"  Margin="200,0" 
+                            SelectedDate="{Binding ElementName=appointmentDataGrid, Path=SelectedValue.datHour}"
+                            SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+                <TextBlock Name="datePickerErrorMessage" Foreground="Red" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="6" Margin="15,0" VerticalAlignment="Center">
+                <Label Content="Choisissez une heure" HorizontalAlignment="Center"/>
+                <TextBox Name="HoursTextBox" Text="{Binding ElementName=appointmentDataGrid, Path=SelectedValue.timeSlotHour, Mode=OneWay}"
+                         LostFocus="HoursTextBox_LostFocus"/>
+                <TextBlock Name="hoursErrorMessage" Foreground="Red" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="6" Margin="15,0" VerticalAlignment="Center">
+                <Label Content="Choisissez les minutes" HorizontalAlignment="Center"/>
+                <TextBox Name="MinutesTextBox" Text="{Binding ElementName=appointmentDataGrid, Path=SelectedValue.timeSlotMinute, Mode=OneWay}"
+                         LostFocus="MinutesTextBox_LostFocus"/>
+                <TextBlock Name="minutesErrorMessage" Foreground="Red" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Margin="15,10">
+                <Label Content="Sujet du rendez vous" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="SubjectTextBox" Text="{Binding ElementName=appointmentDataGrid, Path=SelectedValue.subject}"/>
+                <TextBlock Name="subjectErrorMessage" Foreground="Red" TextAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Boutons -->
+            <Button Content="Sauvegarder" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" Background="Green" Click="ButtonUpdateAppointment_Click"/>
+            <Button Content="Supprimer" Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" Background="Red" Click="ButtonDeleteAppointment_Click"/>
+        </Grid>
+    </ScrollViewer>
+</Page>

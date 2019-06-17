@@ -1,0 +1,115 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diary.Views"
+      xmlns:Models="clr-namespace:Diary.Models" x:Class="Diary.Views.ListBroker"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListBroker" Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="brokerViewSource" d:DesignSource="{d:DesignInstance {x:Type Models:broker}, CreateList=True}"/>
+    </Page.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid DataContext="{StaticResource brokerViewSource}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+
+            <!-- couleur de fond -->
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9CA7CD" Offset="0"/>
+                    <GradientStop Color="#FF06289C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            
+            <!-- Tittle -->
+            <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                       FontSize="36" Text="Liste des courtiers" FontFamily="Segoe Print" 
+                       FontWeight="Bold"/>
+            
+            <!-- DataGrid contenant tous les courtiers-->
+            <DataGrid x:Name="brokerDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" 
+                      Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding}" 
+                      EnableRowVirtualization="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="firstNameColumn" Width="auto" 
+                                        Header="Prénom" Binding="{Binding firstName}"/>
+                    <DataGridTextColumn x:Name="lastNameColumn" Width="auto" 
+                                        Header="Nom de famille" Binding="{Binding lastName}"/>
+                    <DataGridTextColumn x:Name="mailColumn" Width="auto" 
+                                        Header="Adresse Mail" Binding="{Binding mail}"/>
+                    <DataGridTextColumn x:Name="phoneNumberColumn" Width="auto" 
+                                        Header="Numéro de télephone" Binding="{Binding phoneNumber}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- hidden textblcok for idCustomer-->
+            <TextBlock Text="{Binding ElementName=brokerDataGrid, Path=SelectedItem.idBroker}"
+                       Visibility="Hidden" Name="idBrokerTextBlock"/>
+
+            <!-- Formulaire de modifications -->
+            <!-- Tittle -->
+            <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Text="Modifications" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" 
+                       FontFamily="Segoe Print" FontWeight="Bold" />
+
+            <!-- formulaire de modification template: label, input, textBlock(messages d'erreurs) -->
+            <StackPanel Grid.Column="1" Grid.Row="4" Margin="5">
+                <Label Content="Nom de famille" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" 
+                 Name="lastNameTextBox" Text="{Binding ElementName=brokerDataGrid, Path=SelectedItem.lastName}" LostFocus="LastNameTextBox_LostFocus"/>
+                <TextBlock Name="LastNameErrorMessage" HorizontalAlignment="Center"
+                           VerticalAlignment="Center" Foreground="Red" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="4" Margin="5">
+                <Label Content="Prénom" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" Name="firstNameTextBox" 
+                         Text="{Binding ElementName=brokerDataGrid, Path=SelectedItem.firstName}" LostFocus="FirstNameTextBox_LostFocus" />
+                <TextBlock Name="FirstNameErrorMessage" HorizontalAlignment="Center"
+                           VerticalAlignment="Center" Foreground="Red" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="5" Margin="5">
+                <Label Content="Adresse Mail" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" Name="mailTextBox" 
+                         Text="{Binding ElementName=brokerDataGrid, Path=SelectedItem.mail}" LostFocus="MailTextBox_LostFocus" />
+                <TextBlock Name="MailErrorMessage" HorizontalAlignment="Center"
+                           VerticalAlignment="Center" Foreground="Red" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="5" Margin="5">
+                <Label Content="Numéro de télephone" HorizontalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Width="300" Name="phoneNumberTextBox" 
+                         Text="{Binding ElementName=brokerDataGrid, Path=SelectedItem.phoneNumber}" LostFocus="PhoneNumberTextBox_LostFocus" />
+                <TextBlock Name="PhoneNumberErrorMessage" HorizontalAlignment="Center"
+                           VerticalAlignment="Center" Foreground="Red" />
+            </StackPanel>
+
+            <!-- Boutons Modification et suppression -->
+            <Button Grid.Column="1" Grid.Row="6" Margin="15,5" Content="Enregistrer"
+                Width="150" MaxHeight="35" Background="#FF63E028" Click="ButtonUpdateBroker_Click" />
+            <Button Grid.Column="2" Grid.Row="6" Margin="15,5" Content="Supprimer"
+                Width="150" MaxHeight="35" Background="#FFF02B2B" Click="ButtonDelete_Click"/>
+            
+        </Grid>
+    </ScrollViewer>
+</Page>

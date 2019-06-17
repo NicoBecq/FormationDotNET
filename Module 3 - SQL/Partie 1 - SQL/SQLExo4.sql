@@ -1,0 +1,18 @@
+--exo1
+--USE [webDevelopment];
+--GO
+--ALTER TABLE [dbo].[languages]
+--	ALTER COLUMN [language] NVARCHAR(50);
+--ALTER TABLE [dbo].[languages]
+--	ALTER COLUMN [version] NVARCHAR(50);
+--GO
+--INSERT INTO [dbo].[languages]([language], [version])
+--	VALUES ('JavaScript', 5),
+--		('PHP', 5.2),
+--		('PHP', 5.4),
+--		('HTML', 5.1),
+--		('JavaScript', 6),
+--		('JavaScript', 7),
+--		('JavaScript', 8),
+--		('PHP', 7);
+--GO

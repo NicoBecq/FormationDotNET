@@ -1,0 +1,225 @@
+--CREATE DATABASE school
+--GO
+--USE school
+--GO
+
+--/*------------------------------------------------------------
+--*        Script SQLSERVER 
+--------------------------------------------------------------*/
+
+
+--/*------------------------------------------------------------
+---- Table: classes
+--------------------------------------------------------------*/
+--CREATE TABLE classes(
+--	id      INT IDENTITY (1,1) NOT NULL ,
+--	class   VARCHAR (50) NOT NULL  ,
+--	CONSTRAINT classes_PK PRIMARY KEY (id)
+--);
+
+
+--/*------------------------------------------------------------
+---- Table: teachers
+--------------------------------------------------------------*/
+--CREATE TABLE teachers(
+--	id                 INT IDENTITY (1,1) NOT NULL ,
+--	teacherLastName    VARCHAR (50) NOT NULL ,
+--	teacherFirstName   VARCHAR (50) NOT NULL ,
+--	mail               VARCHAR (100) NOT NULL ,
+--	id_classes         INT  NOT NULL  ,
+--	CONSTRAINT teachers_PK PRIMARY KEY (id)
+
+--	,CONSTRAINT teachers_classes_FK FOREIGN KEY (id_classes) REFERENCES classes(id)
+--);
+
+
+--/*------------------------------------------------------------
+---- Table: students
+--------------------------------------------------------------*/
+--CREATE TABLE students(
+--	id            INT IDENTITY (1,1) NOT NULL ,
+--	lastName      VARCHAR (50) NOT NULL ,
+--	firstName     VARCHAR (50) NOT NULL ,
+--	id_teachers   INT  NOT NULL ,
+--	id_classes    INT  NOT NULL  ,
+--	CONSTRAINT students_PK PRIMARY KEY (id)
+
+--	,CONSTRAINT students_teachers_FK FOREIGN KEY (id_teachers) REFERENCES teachers(id)
+--	,CONSTRAINT students_classes0_FK FOREIGN KEY (id_classes) REFERENCES classes(id)
+--);
+
+
+--/*------------------------------------------------------------
+---- Table: matters
+--------------------------------------------------------------*/
+--CREATE TABLE matters(
+--	id       INT IDENTITY (1,1) NOT NULL ,
+--	matter   VARCHAR (50) NOT NULL  ,
+--	CONSTRAINT matters_PK PRIMARY KEY (id)
+--);
+
+
+--/*------------------------------------------------------------
+---- Table: notes
+--------------------------------------------------------------*/
+--CREATE TABLE notes(
+--	id            INT IDENTITY (1,1) NOT NULL ,
+--	note          FLOAT  NOT NULL ,
+--	id_students   INT  NOT NULL ,
+--	id_matters    INT  NOT NULL  ,
+--	CONSTRAINT notes_PK PRIMARY KEY (id)
+
+--	,CONSTRAINT notes_students_FK FOREIGN KEY (id_students) REFERENCES students(id)
+--	,CONSTRAINT notes_matters0_FK FOREIGN KEY (id_matters) REFERENCES matters(id)
+--);
+
+--insertions classes
+--INSERT INTO [dbo].[classes] ([class])
+--	VALUES ('CP'),
+--		('CE1'),
+--		('CE2'),
+--		('CM1'),
+--		('CM2')
+--GO
+
+--insertions cours
+--INSERT INTO [dbo].[matters] ([matter])
+--	VALUES ('Maths'),
+--		('Sport'),
+--		('Français'),
+--		('Anglais'),
+--		('Histoire'),
+--		('Géographie')
+--GO
+
+--insertion profs	
+--INSERT INTO [dbo].[teachers] ([teacherLastName], [teacherFirstName], [mail], [id_classes])
+--	VALUES	('Durrif', 'Sylvain', 'sylvanys.lemessie@gmail.com', 1),
+--			('Dujardin', 'Jean', 'jean.danslacourt@gmail.com', 2),
+--			('Gosselin', 'Emile', 'gosselin.emile@gmail.com', 3),
+--			('Lacroix', 'Vincent', 'lacroix.vincent@gmail.com', 4)
+--GO
+
+--insertions students (sachant que les ID proffesseurs vont de 2 à 5, et les id classes vont de 1 à 4)
+--INSERT INTO [dbo].[students] ([lastName], [firstName], [id_teachers], [id_classes])
+--	VALUES	('Louis-Paul', 'Jérôme', 2, 1),
+--			('Pineau', 'Madeleine', 2, 1),
+--			('Le Devaux', 'Lucy', 2, 1),
+--			('Leblanc-Delorme', 'Olivier', 2, 1),
+--			('Pons', 'Benjamin', 2, 1),
+--			('Boulanger', 'Cécile', 2, 1),
+--			('Lamy', 'Matthieu-Georges', 3, 2),
+--			('Valette', 'Sabine', 3, 2), 
+--			('Marty', 'Frédérique', 3, 2),
+--			('Cordier', 'Raymond', 3, 2),
+--			('Huet', 'Martine', 3, 2),
+--			('Chevalier', 'Georges-Thierry', 3, 2),
+--			('Diallo-Dupuis', 'Constance', 4, 3),
+--			('Legendre', 'Thomas', 4, 3),
+--			('Levy', 'Henri', 4, 3),
+--			('Olivier', 'Édith', 4, 3), 
+--			('Klein', 'Madeleine-Nathalie', 4, 3),
+--			('de Roy', 'Élise', 4, 3),
+--			('Roussel', 'Emmanuel', 5, 4),
+--			('Ollivier', 'Alfred-Augustin', 5, 4),
+--			('Texier', 'Tristan', 5, 4),
+--			('Fischer', 'Alexandre', 5, 4),
+--			('de Lacombe', 'Audrey', 5, 4),
+--			('Pascal', 'Emmanuel', 5, 4),
+--			('Dupre', 'Marianne', 2, 1),
+--			('Verdier', 'Jean-Tristan', 3, 2),
+--			('Gosselin-Evrard', 'Paul', 4, 3),
+--			('du Merle', 'Marcelle', 5, 4),
+--			('Chevalier', 'Victor', 2, 1),
+--			('Le Rousseau', 'Frédéric', 3, 2)
+--GO
+
+--insertion notes élèves (sachant que les id_students vont de 4 à 33, et id_matters de 1 à 6)
+--INSERT INTO [dbo].[notes] ([note], [id_students], [id_matters])
+--	VALUES	(12, 4, 1),
+--			(8, 4, 3),
+--			(10.5, 5, 2),
+--			(16, 5, 6),
+--			(5, 6, 1),
+--			(8.5, 6, 4),
+--			(18.5, 7, 2),
+--			(6.5, 7, 1),
+--			(11, 8, 3),
+--			(13, 8, 5),
+--			(16.5, 9, 3),
+--			(13, 9, 4),
+--			(10.5, 10, 6),
+--			(9, 10, 2),
+--			(7, 11, 3),
+--			(13.5, 11, 6),
+--			(6, 12, 5),
+--			(8.5, 12, 3),
+--			(15.5, 13, 1),
+--			(11, 13, 3),
+--			(14, 14, 5),
+--			(11, 14, 6),
+--			(7, 15, 1),
+--			(18, 15, 2),
+--			(13.5, 16, 4),
+--			(11, 16, 3),
+--			(10.5, 17, 4),
+--			(10, 17, 6),
+--			(6.5, 18, 2),
+--			(2, 18, 6),
+--			(16, 19, 1),
+--			(19.5, 19, 3),
+--			(12.5, 20, 5),
+--			(16, 20, 2),
+--			(6, 21, 3), 
+--			(18, 21, 2),
+--			(2, 22, 5),
+--			(9.5, 22, 6),
+--			(11.5, 23, 4),
+--			(8, 23, 2),
+--			(17, 24, 3),
+--			(16.5, 24, 1),
+--			(4.5, 25, 5), 
+--			(7, 25, 4),
+--			(13.5, 26, 2),
+--			(7.5, 26, 6),
+--			(17.5, 27, 3),
+--			(11, 27, 4),
+--			(14.5, 28, 1),
+--			(8.5, 28, 3),
+--			(11, 29, 2),
+--			(13.5, 29, 6),
+--			(7.5, 30, 4),
+--			(11, 30, 2),
+--			(15, 31, 3),
+--			(12, 31, 4),
+--			(16, 32, 5),
+--			(18, 32, 4),
+--			(8, 33, 2),
+--			(19.5, 33, 6)
+--GO
+
+--fonctionnalité 1 afficher les notes des élève (nom, prénom, note, matière)
+--SELECT [lastName], [firstName], [note], [matter]
+--	FROM [dbo].[students]
+--	LEFT JOIN [dbo].[notes] ON [dbo].[students].[id] = [dbo].[notes].[id_students]
+--	LEFT JOIN [dbo].[matters] ON [dbo].[notes].[id_matters] = [dbo].[matters].[id]
+--	ORDER BY [lastName]
+--GO
+
+--fonctionnalité 2, afficher la moyenne de chaque élève (nom, prénom, classe, nom prof, moyenne)
+--SELECT [lastName], [firstName], [class], [teacherLastName], AVG([note]) AS 'moyenne'
+--	FROM [dbo].[students]
+--	INNER JOIN [dbo].[classes] ON [dbo].[students].[id_classes] = [dbo].[classes].[id]
+--	INNER JOIN [dbo].[teachers] ON [dbo].[students].[id_teachers] = [dbo].[teachers].[id]
+--	INNER JOIN [dbo].[notes] ON [dbo].[students].[id] = [dbo].[notes].[id_students]
+--	GROUP BY [lastName], [firstName], [class], [teacherLastName]
+--	ORDER BY [class]
+--GO
+
+--fonctionnalité 3, afficher tousl les élèves d'un proffesseur(nom, prénom(prof), classe, nom, prénom(élève))
+--SELECT [teacherLastName], [teacherFirstName], [class], [lastName], [firstName]
+--	FROM [dbo].[teachers]
+--	LEFT JOIN [dbo].[classes] ON [dbo].[teachers].[id_classes] = [dbo].[classes].[id]
+--	LEFT JOIN [dbo].[students] ON [dbo].[teachers].[id_classes] = [dbo].[students].[id_classes]
+--	WHERE [dbo].[teachers].[id] = 2
+--GO

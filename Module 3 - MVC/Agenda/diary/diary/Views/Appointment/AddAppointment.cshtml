@@ -1,0 +1,47 @@
+﻿@model diary.Models.appointment
+
+@{
+
+    ViewBag.Title = "Ajouter un rendez-vous";
+}
+
+<h2>Ajouter un rendez-vous</h2>
+@* messages d'erreurs ou réussite insert *@
+<span class="failure-message">@ViewBag.ErrorMessage</span>
+<div id="form_container" class="container rounded mt-2">
+    @*Form*@
+    @using (Html.BeginForm("AddAppointment", "Appointment", FormMethod.Post))
+    {
+        <div class="form-group mt-2">
+            @* label, message d'erreur, input type texte, bouton validation avec icone *@
+            @Html.LabelFor(model => model.datHour, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.datHour, "", new { @class = "rounded failure-message mb-2", id = "datetimepicker" })
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                @Html.EditorFor(model => model.datHour, new { htmlAttributes = new { @class = "form-control datetimepicker-input", @data_target = "#datetimepicker1" } })
+                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+        @* label, message d'erreur, input type text*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.subject, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.subject, "", new { @class = "rounded failure-message mb-2" })
+            @Html.TextAreaFor(model => model.subject, new { placeholder = "Sujet", @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idBroker, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.idBroker, "", new { @class = "rounded failure-message mb-2" })
+            @Html.DropDownListFor(model => model.idBroker, (SelectList)ViewBag.ListBrokers, "Choisissez un courtier", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idCustomer, new { @class = "label-hidden" })
+            @Html.ValidationMessageFor(model => model.idCustomer, "", new { @class = "rounded failure-message mb-2" })
+            @Html.DropDownListFor(model => model.idCustomer, (SelectList)ViewBag.ListCustomers, "Choisissez un client", new { @class = "form-control" })
+        </div>
+        <div class="mt-2 pb-2">
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+
+    }
+</div>

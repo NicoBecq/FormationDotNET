@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Exo Bonus 2 - JQuery</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">Pierre, Feuille ou Ciseaux?</h1>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <input type="radio" name="choice" value="0" id="rock" /><i class="far fa-hand-rock fa-2x"></i>
+                <input type="radio" name="choice" value="1" id="paper" /><i class="far fa-hand-paper fa-2x"></i>
+                <input type="radio" name="choice" value="2" id="scissors" /><i class="far fa-hand-scissors fa-2x"></i>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <input type="submit" name="submit" value="Shifumi!" class="btn btn-primary" id="submit" />
+            </div>
+        </div>
+        <section id="playArea" hidden>
+            <div class="row mt-3 text-center">
+                <div class="col-12 text-center">
+                    <h2>Shifumi : </h2>
+                </div>
+            </div>
+            <div class="row mt-3 text-center">
+                <div class="col-3"></div>
+                <div class="col-2">
+                    <p>Vous : <span id="userScore"></span></p>
+                    <i id="userChoice"></i>
+                </div>
+                <div class="col-2">
+                    <p>Versus</p>
+                </div>
+                <div class="col-2">
+                    <p>IA : <span id="iaScore"></span></p>
+                    <i id="iaChoice"></i>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row text-center">
+                <p class="col-12 mt-3" id="resume"></p>
+                <p class="col-12" id="score"></p>
+                <p class="col-12" id="percent"></p>
+            </div>
+        </section>
+    </div>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!--Mon Script-->
+    <script src="Scripts/script.js"></script>
+</body>
+</html>

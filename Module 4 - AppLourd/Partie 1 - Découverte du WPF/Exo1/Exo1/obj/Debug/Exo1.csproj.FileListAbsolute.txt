@@ -1,0 +1,15 @@
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\bin\Debug\Exo1.exe.config
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\bin\Debug\Exo1.exe
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\bin\Debug\Exo1.pdb
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1.csprojAssemblyReference.cache
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\MainWindow.g.cs
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\App.g.cs
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1_MarkupCompile.cache
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1_MarkupCompile.lref
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\MainWindow.baml
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1.g.resources
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1.Properties.Resources.resources
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1.csproj.GenerateResource.cache
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1.csproj.CoreCompileInputs.cache
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1.exe
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exo1\Exo1\obj\Debug\Exo1.pdb

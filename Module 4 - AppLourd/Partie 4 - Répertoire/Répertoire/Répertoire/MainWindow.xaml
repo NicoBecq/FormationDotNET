@@ -1,0 +1,91 @@
+﻿<Window x:Class="Répertoire.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Répertoire"
+        mc:Ignorable="d"
+        Title="Sign In" Height="700" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0A002B" Offset="1"/>
+                <GradientStop Color="#FF3212A0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="225" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="Gray"
+                Background="Gray"
+                CornerRadius="15" 
+                Grid.Column="1" 
+                Grid.Row="1"
+                Grid.RowSpan="9"/>
+
+        <!--Tittle-->
+        <TextBlock Text="Inscription" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" FontSize="30"/>
+
+        <!--Form-->
+        <StackPanel Grid.Column="1" Grid.Row="2" Margin="30,0,30,0">
+            <Label Content="Nom de famille"/>
+            <TextBox Name="lastNameTextBox" LostFocus="LastNameTextBox_LostFocus"/>
+            <TextBlock Name="lastNameErrorMessage" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" Margin="30,0,30,0">
+            <Label Content="Prénom"/>
+            <TextBox Name="firstNameTextBox" LostFocus="FirstNameTextBox_LostFocus"/>
+            <TextBlock Name="firstNameErrorMessage" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="4" Margin="30,0,30,0">
+            <Label Content="Nom d'utilisateur" HorizontalAlignment="Center" />
+            <TextBox Name="userNameTextBox" LostFocus="UserNameTextBox_LostFocus" />
+            <TextBlock Name="userNameErrorMessage" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="5" Margin="30,0,30,0">
+            <Label Content="Adresse mail" />
+            <TextBox Name="mailTextBox" LostFocus="MailTextBox_LostFocus" />
+            <TextBlock Name="mailErrorMessage" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="6" Margin="30,0,30,0">
+            <Label Content="Mot de passe" HorizontalAlignment="Center"/>
+            <PasswordBox Name="passwordTextBox" LostFocus="PasswordTextBox_LostFocus"/>
+            <TextBlock Name="passwordErrorMessage" Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="7" Margin="30,0,30,0">
+            <Label Content="Confirmez le mot de passe" HorizontalAlignment="Center"/>
+            <PasswordBox Name="confirmPasswordTextBox"/>
+            <TextBlock Name="confirmPasswordErrorMessage" Foreground="Red"/>
+        </StackPanel>
+
+        <Button Content="Inscription" Grid.Column="1" Grid.Row="8"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Height="22"
+                Width="200" Click="ButtonSignIn_Click"/>
+
+        <Button Content="Connexion" Grid.Column="1" Grid.Row="9"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Height="22"
+                Width="200" Click="ButtonLogIn_Click"/>
+    </Grid>
+</Window>

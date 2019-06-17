@@ -1,0 +1,7 @@
+C:\www\Module 3 - POO\exercice5 - POO\exercice5 - POO\bin\Debug\exercice5 - POO.exe.config
+C:\www\Module 3 - POO\exercice5 - POO\exercice5 - POO\bin\Debug\exercice5 - POO.exe
+C:\www\Module 3 - POO\exercice5 - POO\exercice5 - POO\bin\Debug\exercice5 - POO.pdb
+C:\www\Module 3 - POO\exercice5 - POO\exercice5 - POO\obj\Debug\exercice5 - POO.csprojAssemblyReference.cache
+C:\www\Module 3 - POO\exercice5 - POO\exercice5 - POO\obj\Debug\exercice5 - POO.csproj.CoreCompileInputs.cache
+C:\www\Module 3 - POO\exercice5 - POO\exercice5 - POO\obj\Debug\exercice5 - POO.exe
+C:\www\Module 3 - POO\exercice5 - POO\exercice5 - POO\obj\Debug\exercice5 - POO.pdb

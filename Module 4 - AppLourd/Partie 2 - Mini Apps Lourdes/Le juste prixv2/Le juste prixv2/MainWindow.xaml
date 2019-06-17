@@ -1,0 +1,19 @@
+﻿<Window x:Class="Le_juste_prixv2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Le_juste_prixv2"
+        mc:Ignorable="d"
+        Title="Le Juste Prix" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\www\Module 4 - AppLourd\Partie 2 - Mini Apps Lourdes\Le juste prixv2\Le juste prixv2\Imgs\darkBackground.JPG"/>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Bienvenue dans l'application officielle du juste prix !" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Foreground="#FFBDBDC3" FontFamily="MV Boli"/>
+        <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Style="{StaticResource RoundButton}" Background="White">
+            
+        </Button>
+
+    </Grid>
+</Window>

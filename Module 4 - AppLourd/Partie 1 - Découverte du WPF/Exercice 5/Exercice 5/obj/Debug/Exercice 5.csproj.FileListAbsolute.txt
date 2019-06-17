@@ -1,0 +1,14 @@
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\bin\Debug\Exercice 5.exe.config
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\bin\Debug\Exercice 5.exe
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\bin\Debug\Exercice 5.pdb
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\MainWindow.g.cs
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\App.g.cs
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\Exercice 5_MarkupCompile.cache
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\Exercice 5_MarkupCompile.lref
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\MainWindow.baml
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\Exercice 5.g.resources
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\Exercice_5.Properties.Resources.resources
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\Exercice 5.csproj.GenerateResource.cache
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\Exercice 5.csproj.CoreCompileInputs.cache
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\Exercice 5.exe
+C:\www\Module 4 - AppLourd\Partie 1 - Découverte du WPF\Exercice 5\Exercice 5\obj\Debug\Exercice 5.pdb

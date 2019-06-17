@@ -1,0 +1,14 @@
+﻿<Window x:Class="Le_juste_prixv2.Le_juste_prix"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Le_juste_prixv2"
+        mc:Ignorable="d"
+        Title="Le_juste_prix" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\www\Module 4 - AppLourd\Partie 2 - Mini Apps Lourdes\Le juste prixv2\Le juste prixv2\Imgs\darkBackground.JPG"/>
+        </Grid.Background>
+    </Grid>
+</Window>

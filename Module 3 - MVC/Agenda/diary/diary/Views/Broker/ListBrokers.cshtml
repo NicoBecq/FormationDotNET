@@ -1,0 +1,51 @@
+﻿@model IEnumerable<diary.Models.broker>
+@{
+    ViewBag.Title = "liste des courtiers";
+}
+
+<h2>Liste des courtiers</h2>
+
+<div class="container mt-2 table-responsive">
+    <table class="table table-sm table-hover table-striped table-dark">
+        <thead>
+            <tr class="thead-dark">
+                <th>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phoneNumber)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <!--pour tous les items dans le model, afficher une ligne dans le tableau-->
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phoneNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Rendez-vous", "AddAppointment", "Appointment", new { id = item.idBroker }, new { @class = "mr-2" })
+                    @Html.ActionLink("Détails | Modifier", "DetailBroker", "Broker", new { id = item.idBroker }, null)
+                    @Html.ActionLink("X", "DeleteBroker", "Broker", new { id = item.idBroker }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
